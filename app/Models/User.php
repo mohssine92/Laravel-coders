@@ -18,6 +18,9 @@ class User extends Authenticatable
     use Notifiable;
     use TwoFactorAuthenticatable;
 
+    /* protected $table = "users"; */  /* => esa propiedad que acabo de agregar a la clase es donde indicarle que tabla administre , asi va ignorar la convencion  */
+                                       /* ojo esta vez hemos especificado a la clase que tabla va administrar  */
+
     /**
      * The attributes that are mass assignable.
      *
@@ -59,3 +62,6 @@ class User extends Authenticatable
         'profile_photo_url',
     ];
 }
+
+
+/* ==> los modelos todo extienden de la clase model . paraque pueden acceder a todo los motodos de la clase Model , como hemos dicho esto nos va permitir tratar a los registros como objetos   */

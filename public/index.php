@@ -31,7 +31,9 @@ if (file_exists(__DIR__.'/../storage/framework/maintenance.php')) {
 |
 */
 
-require __DIR__.'/../vendor/autoload.php';
+require __DIR__.'/../vendor/autoload.php';  /* es nuestro archivo para cargas automáticas, este archivo es todo lo que necesitamos para hacer que nuestra aplicación tenga conocimiento de Composer, y así usar con éxito todas sus funciones.
+                                            es decir apartir de este archivo tenemos conexion con  nuestro contenedor Vendor de dependencias y dependencias de dependencias , asi esta clase ecarga de detectar la clase que instanciamos desde nuestro
+                                            codigo . si es en general se va ejecutandose en una linea despues en el index que nuestro archivo de aranque de aqui empieza ciclo de vida de nuestra aplicacion  */
 
 /*
 |--------------------------------------------------------------------------

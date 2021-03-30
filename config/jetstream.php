@@ -42,11 +42,11 @@ return [
     */
 
     'features' => [
-        Features::termsAndPrivacyPolicy(), /* esta linea permite que los usuarios puedan subir y actualizar sus imagenes de perfil  */
-        // Features::profilePhotos(),
+        /* Features::termsAndPrivacyPolicy(), */
+          Features::profilePhotos(),  /* esta linea permite que los usuarios puedan subir y actualizar sus imagenes de perfil  */
         // Features::api(),
         // Features::teams(['invitations' => true]),
-        Features::accountDeletion(),
+       /*  Features::accountDeletion(), */
     ],
 
     /*

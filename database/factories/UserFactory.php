@@ -45,3 +45,10 @@ class UserFactory extends Factory
         });
     }
 }
+
+/* => la idea es crear cada clasefactori para cada modelo , es donde estanciamos ese modelo y indicarle que tipo de datos queremos que se llenan las prop del objeto
+     generar clase  factory => php artisan make:factory nombreDemiFactory --model=miModel
+     los factories seran nuestra fabrica , donde asignamos datos a los modelos
+     2 paso - generar clase seeder de este factori => llamos al modelos ejecutando el metodo estatica donde pasamos por params numero de instancias a fabricar es decir numero de registros a insertar ex: Curso::factory(50)->creat();
+     luego como vemos ejecutamos metod de la classe model que extiend el modelo comunicado , pero para ejecutar estos metodo de este nivel tenemos la necesidad de comando artisan uno de ellos burra todo y inserta de nuevo es
+       php artisan migrate:fresh --seed => ojo este comando ejecuta DatanaseSeeder*/
