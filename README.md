@@ -60,3 +60,16 @@ If you discover a security vulnerability within Laravel, please send an e-mail t
 ## License
 
 The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+
+
+
+
+
+
+
+RElacion table :
+
+users - profiles => la relacion es uno a uno , es decir cada user tiene un perfil 
+user - courses => relacion de uno a mucho , donde un usuario de profile profesor tiene de 0 a n cursos , mientra un courso pertenece a 1 user profesor como minimo y 1 user profesor como maximo 
+
+
