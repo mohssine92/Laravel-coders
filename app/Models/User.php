@@ -18,8 +18,7 @@ class User extends Authenticatable
     use Notifiable;
     use TwoFactorAuthenticatable;
 
-    /* protected $table = "users"; */  /* => esa propiedad que acabo de agregar a la clase es donde indicarle que tabla administre , asi va ignorar la convencion  */
-                                       /* ojo esta vez hemos especificado a la clase que tabla va administrar  */
+
 
     /**
      * The attributes that are mass assignable.
@@ -61,7 +60,40 @@ class User extends Authenticatable
     protected $appends = [
         'profile_photo_url',
     ];
+
+
+    /* Relacion uno a uno . => un ususario solo puede tener un perfil , y un perfil solo pertenece a un usuarios */
+    public function perfile () {
+
+      return $this->hasone('App\Models\Profile'); /* toma en cuenta this->id referente a id_user lo que hace simplemente extraeme objeto de propiedad de la entidad user  */
+
+    }
+
+    /* Relacion de uno a muchos , un profesor puede tener 0 curso a n cursos , mientras un curso pertenece 1 profesor como minimo y a 1 profe como maximo  */
+    public function courses_dictated() {
+
+      return $this->hasMany('App\Models\Course'); /* Toma en cuenta $this->id referente user_id en course  - lo que hace extiende una colleccion de objetos de zero objeto a n objetos de la entidad course */
+
+    }
+
+    /* Relacion de muchos a muchos , un user de perfil alumno puede estar suscrito en varios cursos , mientra un curso puede tener varios user de perfil alumnos matriculados en el */ /* requiere tabla pivote */
+     public function courses_enrolled(){
+
+       return $this->belongsToMany('App\Models\Course'); /* Toma en cuenta $this->id users (perfil alumno) referente user_id en course_user table pivote  */
+
+     }
+
+     /* Relacion de uno a muchos  */
+     public function reviews(){
+
+        return $this->hasMany('App\Models\Review');
+
+     }
+
+
+
+
+
 }
 
 
-/* ==> los modelos todo extienden de la clase model . paraque pueden acceder a todo los motodos de la clase Model , como hemos dicho esto nos va permitir tratar a los registros como objetos   */
