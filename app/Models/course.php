@@ -52,6 +52,7 @@ class course extends Model
     return $this->belongsTo('App\Models\Category');
   }
 
+
   /* Relacion de muchos a muchos  */ /* Rwquired  pivote table */
    public function students(){
      return $this->belongsToMany('App\Models\User'); /* me extraeuna coleccion de objetos de 0 a n objetos  */

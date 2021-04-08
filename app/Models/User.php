@@ -77,10 +77,14 @@ class User extends Authenticatable
     }
 
     /* Relacion de muchos a muchos ,/  /* requiere tabla pivote */
-     public function courses_enrolled(){
-
+     public function courses_enrolled()
+     {
        return $this->belongsToMany('App\Models\Course'); /* Toma en cuenta $this->id users (perfil alumno) referente user_id en course_user table pivote  */
+     }
 
+     public function lessons ()
+     {
+        return $this->belongsToMany('App\Models\Lesson');
      }
 
      /* Relacion de uno a muchos  */

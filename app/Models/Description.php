@@ -5,13 +5,15 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Requirement extends Model
+class Description extends Model
 {
     use HasFactory;
 
-    /* Relacion de uno a mucho inversa */
-    public function course (){
-       return $this->belongsTo('App\Models\Course');
+    /* relacion uno a uno  */
+    public function lesson ()
+    {
+       return $this->hasOne('App\Models\Lesson');
     }
+
 
 }

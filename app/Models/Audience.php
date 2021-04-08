@@ -11,6 +11,6 @@ class Audience extends Model
 
      /* Relacion de uno a mucho inversa */
      public function course (){
-        return $this->belongsTo('App/Models/Course');
+        return $this->belongsTo('App\Models\Course');
      }
 }
