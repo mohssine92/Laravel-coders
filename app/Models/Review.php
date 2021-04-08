@@ -14,15 +14,15 @@ class Review extends Model
 
     public function users(){
 
-       return $this->belongsTo('App\Models\User');  /* toma en cuenta estos $this->user_id pertenecen a id en user  */
+       return $this->belongsTo('App\Models\User');
 
     }
 
     public function course(){
 
-        return $this->belongsTo('App\Models\Course');  /* toma en cuenta estos $this->user_id pertenecen a id en user  */
+        return $this->belongsTo('App\Models\Course');
 
-     }
+    }
 
 
 }

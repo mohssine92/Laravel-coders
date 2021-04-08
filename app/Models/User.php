@@ -62,21 +62,21 @@ class User extends Authenticatable
     ];
 
 
-    /* Relacion uno a uno . => un ususario solo puede tener un perfil , y un perfil solo pertenece a un usuarios */
+    /* Relacion uno a uno . */
     public function perfile () {
 
-      return $this->hasone('App\Models\Profile'); /* toma en cuenta this->id referente a id_user lo que hace simplemente extraeme objeto de propiedad de la entidad user  */
+      return $this->hasone('App\Models\Profile');
 
     }
 
-    /* Relacion de uno a muchos , un profesor puede tener 0 curso a n cursos , mientras un curso pertenece 1 profesor como minimo y a 1 profe como maximo  */
+    /* Relacion de uno a muchos ,   */
     public function courses_dictated() {
 
-      return $this->hasMany('App\Models\Course'); /* Toma en cuenta $this->id referente user_id en course  - lo que hace extiende una colleccion de objetos de zero objeto a n objetos de la entidad course */
+      return $this->hasMany('App\Models\Course');
 
     }
 
-    /* Relacion de muchos a muchos , un user de perfil alumno puede estar suscrito en varios cursos , mientra un curso puede tener varios user de perfil alumnos matriculados en el */ /* requiere tabla pivote */
+    /* Relacion de muchos a muchos ,/  /* requiere tabla pivote */
      public function courses_enrolled(){
 
        return $this->belongsToMany('App\Models\Course'); /* Toma en cuenta $this->id users (perfil alumno) referente user_id en course_user table pivote  */
@@ -89,7 +89,6 @@ class User extends Authenticatable
         return $this->hasMany('App\Models\Review');
 
      }
-
 
 
 

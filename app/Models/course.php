@@ -14,12 +14,13 @@ class course extends Model
     const PUBLICADO = 3;
 
 
-   /* Relacion de uno a mucho inversa , al ver inversa segnifica que esta entidad es debil */
+   /* Relacion de uno a mucho inversa ,  */  /* si el nombre de metodo relacion sera diferente a la entidad es obligatorio declarar attributo referente  */
    public function teacher(){
 
-     $this->belongsTo('App\Models\User','user_id'); /* toma en cuenta $this->user_id referente a id de users , extrae de users table un objeto de user */
-                                                    /* declaro explicitamente de la lleve forrene es user_id */
+    $this->belongsTo('App\Models\User', 'user_id');
+
    }
+
    public function level(){
 
      return $this->belongsTo('App\Models\Level');
