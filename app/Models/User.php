@@ -70,11 +70,10 @@ class User extends Authenticatable
     }
 
     /* Relacion de uno a muchos ,   */
-    public function courses_dictated() {
-
-      return $this->hasMany('App\Models\Course');
-
-    }
+    public function courses_dictated()
+     {
+         return $this->hasMany('App\Models\Course');
+     }
 
     /* Relacion de muchos a muchos ,/  /* requiere tabla pivote */
      public function courses_enrolled()
@@ -88,11 +87,21 @@ class User extends Authenticatable
      }
 
      /* Relacion de uno a muchos  */
-     public function reviews(){
-
+     public function reviews()
+     {
         return $this->hasMany('App\Models\Review');
-
      }
+
+     public function comments()
+     {
+        return $this->hasMany('App\Models\Comment');
+     }
+
+     public function reactions()
+     {
+        return $this->hasMany('App\Models\Reaction');
+     }
+
 
 
 

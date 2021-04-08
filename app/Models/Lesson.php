@@ -32,4 +32,21 @@ class Lesson extends Model
        return $this->belongsToMany('App\Models\User');
     }
 
+    /* Relacion uno a uno Polimorfica , 2 params metodo ... */
+    public function resource ()
+    {
+        return $this->morphone('App\Models\Resource', 'resourceable');
+    }
+
+    /* Relacion de uno a muchos Polimorfica , 2 params es un metodo donde especificamos que vamos a aceptar relacion polimorficas */
+    public function comments ()
+    {
+       $this->morphMany('App\Models\Comment', 'commentable');
+    }
+
+    public function reactions ()
+    {
+       $this->morphMany('App\Models\Reaction', 'reactionable');
+    }
+
 }

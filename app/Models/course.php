@@ -58,6 +58,17 @@ class course extends Model
      return $this->belongsToMany('App\Models\User'); /* me extraeuna coleccion de objetos de 0 a n objetos  */
    }
 
+   /* Relacion uno a uno polimorfica */
+   public function image()
+   {
+      return $this->morphOne('App\Models\Image', 'imageable');
+   }
+
+   /* aprovecho la relacion entre courses y section , y sections y lessons genero relacion entre courses y lessons*/
+   public function lessons()
+   {
+       return $this->hasManyThrough('App\Models\Lesson', 'App\Models\Section');  /* section modelo intermedio  */
+   }
 
 
 
