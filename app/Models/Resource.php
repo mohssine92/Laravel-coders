@@ -9,6 +9,9 @@ class Resource extends Model
 {
     use HasFactory;
 
+     /* Asignacion masiva indicando los campo bloqueados no se insertan en tabla   */
+     protected $guarded = ['id'];
+
      /* especificar que voy a utulizar relacion polimorfica */
      public function resourceable ()
      {

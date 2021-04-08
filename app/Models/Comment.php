@@ -9,7 +9,8 @@ class Comment extends Model
 {
     use HasFactory;
 
-
+    /* Asignacion masiva indicando los campo bloqueados no se insertan en tabla   */
+     protected $guarded = ['id'];
 
 
     /* especificar que voy a aceptar relacion polimorfica */

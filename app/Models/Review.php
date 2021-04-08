@@ -9,6 +9,8 @@ class Review extends Model
 {
     use HasFactory;
 
+     /* Asignacion masiva indicando los campo bloqueados no se insertan en tabla   */
+     protected $guarded = ['id'];
 
     /* Relacion de uno a muchos inversa  */
 

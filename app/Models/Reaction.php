@@ -9,6 +9,9 @@ class Reaction extends Model
 {
     use HasFactory;
 
+     /* Asignacion masiva indicando los campo bloqueados no se insertan en tabla   */
+     protected $guarded = ['id'];
+
     CONST LIKE = 1;
     CONST DISLIKE = 2;
 

@@ -9,6 +9,9 @@ class Profil extends Model
 {
     use HasFactory;
 
+     /* Asignacion masiva indicando los campo bloqueados no se insertan en tabla   */
+     protected $guarded = ['id'];
+
 
     /* Relacion uno a uno inversa */
     public function user(){

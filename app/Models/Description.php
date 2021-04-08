@@ -9,6 +9,9 @@ class Description extends Model
 {
     use HasFactory;
 
+     /* Asignacion masiva indicando los campo bloqueados no se insertan en tabla   */
+     protected $guarded = ['id'];
+
     /* relacion uno a uno  */
     public function lesson ()
     {

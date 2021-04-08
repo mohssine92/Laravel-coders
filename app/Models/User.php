@@ -25,6 +25,8 @@ class User extends Authenticatable
      *
      * @var array
      */
+
+    /* asignacion masiva los campos que tienen permiso a insertarse en tabla  */
     protected $fillable = [
         'name',
         'email',

@@ -9,6 +9,9 @@ class course extends Model
 {
     use HasFactory;
 
+     /* Asignacion masiva indicando los campo bloqueados no se insertan en tabla   */
+     protected $guarded = ['id','status'];
+
     const BORRADOR = 1;
     const REVISION = 2;
     const PUBLICADO = 3;
