@@ -18,7 +18,7 @@ class CreateLessonsTable extends Migration
 
             $table->string('name');
             $table->string('url');
-            $table->string('ifram');
+            $table->text('ifram');
 
             /* llaves foreaneas  para relacionar typado con plataforms*/
             $table->unsignedBigInteger('platform_id')->nullable(); /* nota  */

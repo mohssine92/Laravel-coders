@@ -9,6 +9,8 @@ use App\Models\Goal;
 use App\Models\Image;
 use App\Models\Requirement;
 use App\Models\Audience;
+use App\Models\Description;
+use App\Models\Lesson;
 use App\Models\Section;
 
 class CourseSeeeder extends Seeder
@@ -32,22 +34,24 @@ class CourseSeeeder extends Seeder
                 'imageable_type'  => 'App\Models\Course'
             ]);
 
-            Requirement::factory(4)->create([
-                'course_id'  => $course->id
-            ]);
+            Requirement::factory(4)->create([ 'course_id'  => $course->id ]);
 
-            Goal::factory(4)->create([
-                'course_id' => $course->id
-            ]);
+            Goal::factory(4)->create(['course_id' => $course->id ]);
 
-            Audience::factory(4)->create([
-                'course_id' => $course->id
-            ]);
+            Audience::factory(4)->create([ 'course_id' => $course->id ]);
 
-            Section::factory(4)->create([
-                'course_id' => $course->id
-            ]);
+            $sections = Section::factory(4)->create([ 'course_id' => $course->id  ]);
 
+            /* sabemos que cada section tiene 4 lessons en este caso */
+            foreach ($sections as $section ) {
+
+               $Lessons = Lesson::factory(4)->create([ 'section_id' => $section->id ]);
+
+                foreach ($Lessons as $Lesson ) {
+                  Description::factory(1)->create([ 'lesson_id' => $Lesson->id ]);
+                }
+
+            }
 
 
         }
