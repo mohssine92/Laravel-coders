@@ -17,6 +17,9 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
 
+       /* elemina si existe carpeta de cursos ,asi evitamos en cada seeder se permanezcan img en disco duro inecesarios   */
+       Storage::deleteDirectory('cursos');
+
        /* Metodo genera carpeta dentro Storage/cursos/fake.jpg */
        Storage::makeDirectory('cursos');
 

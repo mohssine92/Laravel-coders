@@ -1,11 +1,15 @@
 <?php
 
 namespace Database\Seeders;
-use Database\Factories\CourseFactory;
+
 use Illuminate\Database\Seeder;
 
 use App\Models\course;
+use App\Models\Goal;
 use App\Models\Image;
+use App\Models\Requirement;
+use App\Models\Audience;
+use App\Models\Section;
 
 class CourseSeeeder extends Seeder
 {
@@ -27,6 +31,24 @@ class CourseSeeeder extends Seeder
                 'imageable_id'    => $course->id,
                 'imageable_type'  => 'App\Models\Course'
             ]);
+
+            Requirement::factory(4)->create([
+                'course_id'  => $course->id
+            ]);
+
+            Goal::factory(4)->create([
+                'course_id' => $course->id
+            ]);
+
+            Audience::factory(4)->create([
+                'course_id' => $course->id
+            ]);
+
+            Section::factory(4)->create([
+                'course_id' => $course->id
+            ]);
+
+
 
         }
 

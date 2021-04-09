@@ -2,17 +2,17 @@
 
 namespace Database\Factories;
 
-use App\Models\Image;
+use App\Models\Section;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
-class ImageFactory extends Factory
+class SectionFactory extends Factory
 {
     /**
      * The name of the factory's corresponding model.
      *
      * @var string
      */
-    protected $model = Image::class;
+    protected $model = Section::class;
 
     /**
      * Define the model's default state.
@@ -20,13 +20,10 @@ class ImageFactory extends Factory
      * @return array
      */
     public function definition()
-    {    /* Alimentacion de tabla polimorfica images , requiere de la alimentacion dinamica */
+    {
         return [
-
-          'url' => 'cursos/'.$this->faker->image('public/storage/cursos', 640, 480, null, false),
-
-
-
+            'name'   => $this->faker->sentence(),
+            /* curse_id => lo añado dinamicamente  , depende de la generacion de id couse*/
         ];
     }
 }
