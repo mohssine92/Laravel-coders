@@ -17,7 +17,8 @@ class RouteServiceProvider extends ServiceProvider
      *
      * @var string
      */
-    public const HOME = '/dashboard';
+    /* inicio de session redirectTo dominio/$home */
+    public const HOME = '/';
 
     /**
      * The controller namespace for the application.
@@ -37,15 +38,24 @@ class RouteServiceProvider extends ServiceProvider
     {
         $this->configureRateLimiting();
 
+        /* en esta funccion declaro archivo , paraque laravel lo reconosca como archivo de rutas */
         $this->routes(function () {
+
+            /* declaracion de archivo rutas API */
             Route::prefix('api')
                 ->middleware('api')
                 ->namespace($this->namespace)
                 ->group(base_path('routes/api.php'));
 
+            /* declaracion de archivo WebService */
             Route::middleware('web')
                 ->namespace($this->namespace)
                 ->group(base_path('routes/web.php'));
+
+            Route::middleware('web', 'auth')
+                ->prefix('admin')
+                ->namespace($this->namespace)
+                ->group(base_path('routes/admin.php'));
         });
     }
 
