@@ -1,3 +1,9 @@
+/* em webpackmix este es el archivo que se  va compilar , por elle @importo todo archivo css quiero compilar aqui  */
+
+
 @import 'tailwindcss/base';
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
+
+@import 'bg.css';
+@import 'color.css'

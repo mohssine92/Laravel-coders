@@ -4,7 +4,9 @@ namespace App\View\Components;
 
 use Illuminate\View\Component;
 
-class AppLayout extends Component
+
+/* <x-app-layout> */
+class AppLayout extends Component     /* php artisan make:component  */
 {
     /**
      * Get the view / contents that represents the component.
@@ -14,5 +16,6 @@ class AppLayout extends Component
     public function render()
     {
         return view('layouts.app');
+
     }
 }

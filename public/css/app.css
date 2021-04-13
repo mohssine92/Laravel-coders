@@ -1,4 +1,6 @@
-/*! tailwindcss v2.0.3 | MIT License | https://tailwindcss.com */
+/* em webpackmix este es el archivo que se  va compilar , por elle @importo todo archivo css quiero compilar aqui  */
+
+/* ! tailwindcss v2.0.3 | MIT License | https://tailwindcss.com  */
 
 /*! modern-normalize v1.0.0 | MIT License | https://github.com/sindresorhus/modern-normalize */
 
@@ -32715,6 +32717,38 @@ select {
 .animate-bounce {
   -webkit-animation: bounce 1s infinite;
           animation: bounce 1s infinite;
+}
+
+bg-bi{
+  background-color: bisque;
+}
+
+bg-co{
+  background-color:coral;
+}
+
+bg-dark-or{
+  background-color:darkorange;
+}
+
+bg-peru{
+  background-color:peru;
+}
+
+color-bi{
+  color: bisque;
+}
+
+color-co{
+  color:coral;
+}
+
+color-dark-or{
+  color:darkorange;
+}
+
+color-peru{
+  color:peru;
 }
 
 @media (min-width: 640px) {
