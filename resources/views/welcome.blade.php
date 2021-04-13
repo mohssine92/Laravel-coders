@@ -109,11 +109,25 @@
 
                 <div class="container mx-auto">
 
+                    <x-alert color='blue'>
+                         <x-slot name="title">
+                             Hala Madrid
+                         </x-slot>
 
-                     {{-- pasar atrributo valor en el tag  --}}
-                     <x-alert color="blue" />
-                     <x-alert/>
+                        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nisi, officia sint? Temporibus.
+                    </x-alert>
 
+
+                    <x-alert>
+                        <x-slot name="title">
+                            Bisca Barca
+                        </x-slot>
+                       Madrid Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus accusantium blanditiis eos!
+                    </x-alert>
+
+
+                    {{-- lograr parragrafo se liste de manera dinamica segun el tag del componente usando conscepto $slot
+                          pasar titulo dinamico usando slot con nombre  , concepto slot la variable no hace falta recbirla en constructor del componente                          --}}
 
                 </div>
             </div>
