@@ -109,25 +109,34 @@
 
                 <div class="container mx-auto">
 
-     @php
-         $color ='red';
-     @endphp
-                   {{-- se instacia de la misma manera como se instancia un componente que consta de una clase --}}
-                   <x-alert2 color='blue' class='mt-10'>
-                     <x-slot name="title">
-                         Titulo de prueba
-                     </x-slot>
+                  @php  /* supone que estos datos vienen de la base de datos  */
+                      $color ='red';
+                      $alert ='alert2';  /* depende de este data mostramos instancia de componente , asi necesitamos de tagComponente dinamico  */
+                  @endphp
 
-                      Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis, dolores amet. Consectetur ducimus, dolorum perspiciatis explicabo, culpa veniam, animi magnam tempore rep
-                   </x-alert2>
 
-                  <x-alert class="mt-5" :color='$color'>
+                 {{-- se instacia de la misma manera como se instancia un componente que consta de una clase --}}
+                 <x-alert2 color='blue' class='mt-10'>
+                   <x-slot name="title">
+                       Titulo de prueba
+                   </x-slot>
+
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis, dolores amet. Consectetur ducimus, dolorum perspiciatis explicabo, culpa veniam, animi magnam tempore rep
+                 </x-alert2>
+
+                <x-alert class="mt-5" :color='$color'>
+                   <x-slot name="title">
+                       hala madrid
+                   </x-slot>
+                   Lorem ipsum dolor, sit amet consectetur adipisicing elit. Praesentium necessitatibus exercitationem reiciendis.
+                </x-alert>
+
+                 <x-dynamic-component :component='$alert'>
                      <x-slot name="title">
                          hala madrid
                      </x-slot>
                      Lorem ipsum dolor, sit amet consectetur adipisicing elit. Praesentium necessitatibus exercitationem reiciendis.
-                  </x-alert>
-
+                 </x-dynamic-component>
 
                 </div>
             </div>
