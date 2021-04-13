@@ -7,7 +7,8 @@ use Illuminate\View\Component;
 class Alert extends Component
 {
     /**
-     * Create a new component instance.
+     * creat new component of Blade ,  php artisan make:component Alert
+     * Create a new component instance.   <x-alert/>  mthode render() renderiza contenido al tag   <x-alert/>
      *
      * @return void
      */
