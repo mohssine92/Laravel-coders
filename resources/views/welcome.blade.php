@@ -110,33 +110,23 @@
                 <div class="container mx-auto">
 
      @php
-         $color ='yellow';
+         $color ='red';
      @endphp
+                   {{-- se instacia de la misma manera como se instancia un componente que consta de una clase --}}
+                   <x-alert2 color='blue' class='mt-10'>
+                     <x-slot name="title">
+                         Titulo de prueba
+                     </x-slot>
 
-   {{-- attributo valor class  todo atributo con su valor pasados por tagComponent no recibido en constructur de classComponent se almacenan en una variable $attributes --}}
-                    <x-alert :color='$color' class="mb-10">
-                         <x-slot name="title">
-                             Hala Madrid
-                         </x-slot>
+                      Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis, dolores amet. Consectetur ducimus, dolorum perspiciatis explicabo, culpa veniam, animi magnam tempore rep
+                   </x-alert2>
 
-                        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nisi, officia sint? Temporibus.
-                    </x-alert>
-
-
-                    <x-alert>
-                        <x-slot name="title">
-                            Bisca Barca
-                        </x-slot>
-                       Madrid Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus accusantium blanditiis eos!
-                    </x-alert>
-                    <x-alert>
-                        <x-slot name="title">
-                            Bisca Barca
-                        </x-slot>
-                       Madrid Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus accusantium blanditiis eos!
-                    </x-alert>
-
-
+                  <x-alert class="mt-5" :color='$color'>
+                     <x-slot name="title">
+                         hala madrid
+                     </x-slot>
+                     Lorem ipsum dolor, sit amet consectetur adipisicing elit. Praesentium necessitatibus exercitationem reiciendis.
+                  </x-alert>
 
 
                 </div>

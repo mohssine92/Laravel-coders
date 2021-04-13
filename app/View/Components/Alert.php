@@ -8,7 +8,7 @@ class Alert extends Component
 {
 
     public $color;
-
+    public $colors;
     /**
      * creat new component of Blade ,  php artisan make:component Alert
      * Create a new component instance.   <x-alert/>  mthode render() renderiza contenido al tag   <x-alert/>
@@ -18,6 +18,7 @@ class Alert extends Component
     public function __construct($color = 'red')
     {
         $this->color = $color;
+
     }
 
     /**
@@ -31,4 +32,12 @@ class Alert extends Component
     {
         return view('components.alert');
     }
+
+    public function prueba(){  /* esta es la diferencia con un componente anonimo no puede añadirle logica , tal como estoy haciendo ahora  */
+
+        if($this->color == 'red'){ return "Esta es una alerta de peligro";}
+
+    }
+
+
 }
