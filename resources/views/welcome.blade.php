@@ -110,9 +110,9 @@
                 <div class="container mx-auto">
 
 
-
+                     {{-- pasar atrributo valor en el tag  --}}
+                     <x-alert color="blue" />
                      <x-alert/>
-
 
 
                 </div>
