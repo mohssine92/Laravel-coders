@@ -109,7 +109,12 @@
 
                 <div class="container mx-auto">
 
-                    <x-alert color='blue'>
+     @php
+         $color ='yellow';
+     @endphp
+
+   {{-- attributo valor class  todo atributo con su valor pasados por tagComponent no recibido en constructur de classComponent se almacenan en una variable $attributes --}}
+                    <x-alert :color='$color' class="mb-10">
                          <x-slot name="title">
                              Hala Madrid
                          </x-slot>
@@ -124,10 +129,15 @@
                         </x-slot>
                        Madrid Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus accusantium blanditiis eos!
                     </x-alert>
+                    <x-alert>
+                        <x-slot name="title">
+                            Bisca Barca
+                        </x-slot>
+                       Madrid Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus accusantium blanditiis eos!
+                    </x-alert>
 
 
-                    {{-- lograr parragrafo se liste de manera dinamica segun el tag del componente usando conscepto $slot
-                          pasar titulo dinamico usando slot con nombre  , concepto slot la variable no hace falta recbirla en constructor del componente                          --}}
+
 
                 </div>
             </div>
