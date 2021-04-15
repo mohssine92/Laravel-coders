@@ -12,9 +12,24 @@ class course extends Model
      /* Asignacion masiva indicando los campo bloqueados no se insertan en tabla   */
      protected $guarded = ['id','status'];
 
+    /* Generar atrributos con el numero de registros relacionados al id course . Ex =>  reviews_count: 0  */
+    protected $withCount = ['students', 'reviews'];
+
     const BORRADOR = 1;
     const REVISION = 2;
     const PUBLICADO = 3;
+
+    /* añadir atrributo al modelo  */
+    /* avg() sacar promedio de la cifra en columna rating */
+    public function getRatingAttribute()
+    {
+       if($this->reviews_count > 0){
+         return round( $this->reviews->avg('rating') , 1 );
+       }else{
+           return 5;
+       }
+
+    }
 
 
    /* Relacion de uno a muchos  */
@@ -55,22 +70,19 @@ class course extends Model
     return $this->belongsTo('App\Models\Category');
   }
 
-
   /* Relacion de muchos a muchos  */ /* Rwquired  pivote table */
    public function students(){
      return $this->belongsToMany('App\Models\User'); /* me extraeuna coleccion de objetos de 0 a n objetos  */
    }
-
    /* Relacion uno a uno polimorfica */
    public function image()
    {
       return $this->morphOne('App\Models\Image', 'imageable');
    }
-
    /* aprovecho la relacion entre courses y section , y sections y lessons genero relacion entre courses y lessons*/
    public function lessons()
    {
-       return $this->hasManyThrough('App\Models\Lesson', 'App\Models\Section');  /* section modelo intermedio  */
+    return $this->hasManyThrough('App\Models\Lesson', 'App\Models\Section');  /* section modelo intermedio  */
    }
 
 

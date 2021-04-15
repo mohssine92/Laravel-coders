@@ -39,7 +39,7 @@ class CourseFactory extends Factory
             'description' => $this->faker->paragraph(),
             'status'      => $this->faker->randomElement( $this->status ), /* retorna aleatoriament elemento  del array */
             'slug'        => $slug,
-            'user_id'     => User::all()->random()->id,
+            'user_id'     => 1,
             'level_id'    => Level::all()->random()->id,
             'category_id' => Category::all()->random()->id,
             'price_id'    => price::all()->random()->id
