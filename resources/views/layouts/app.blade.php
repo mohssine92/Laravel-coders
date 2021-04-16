@@ -26,7 +26,7 @@
 
         <div class="min-h-screen bg-gray-100">
 
-            @livewire('navigation-menu')   {{--esta es la forma de instanciar o llamar componente de livewire--}}
+            @livewire('navigation-menu')     {{--esta es la forma de instanciar o llamar componente de livewire--}}
 
 
 

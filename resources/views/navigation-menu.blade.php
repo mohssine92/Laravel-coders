@@ -159,12 +159,17 @@
 
                     @else
 
-                    <x-jet-nav-link href="{{ route('login') }}" :active="request()->routeIs('login')">
-                         Login
-                    </x-jet-nav-link>
-                    <x-jet-nav-link href="{{ route('register') }}" :active="request()->routeIs('register') ">
-                         Register
-                    </x-jet-nav-link>
+
+                    <div class="align="right" width="48"">
+                        <x-jet-nav-link href="{{ route('login') }}" :active="request()->routeIs('login')">
+                            Login
+                       </x-jet-nav-link>
+                       <x-jet-nav-link href="{{ route('register') }}" :active="request()->routeIs('register') ">
+                            Register
+                       </x-jet-nav-link>
+
+                    </div>
+
 
 
 
@@ -184,9 +189,6 @@
             </div>
         </div>
     </div>
-
-
-
 
 
     <!--TODO : Responsive Navigation Menu Movil   -->
@@ -281,20 +283,26 @@
 
        @else
 
-       <div class="py-1 border-t border-gray-200">
+      {{--  <div class="pt-4 pb-1 border-t border-gray-200"> --}}
 
-          <x-jet-responsive-nav-link href="{{ route('login') }}" :active="request()->routeIs('login')">
-              Login
-          </x-jet-responsive-nav-link>
-          <x-jet-responsive-nav-link href="{{ route('register') }}" :active="request()->routeIs('register')">
-             Register
-          </x-jet-responsive-nav-link>
+       {{--  <div class="mt-3 space-y-1"> --}}
+            <div class="py-1 border-t border-gray-200">
+                <x-jet-responsive-nav-link href="{{ route('login') }}" :active="request()->routeIs('login')">
+                    Login
+                </x-jet-responsive-nav-link>
+                <x-jet-responsive-nav-link href="{{ route('register') }}" :active="request()->routeIs('register')">
+                    Register
+                 </x-jet-responsive-nav-link>
+            </div>
 
-       </div>
+      {{--   </div> --}}
 
-       </div>
+     {{--   </div> --}}
+
+
 
       @endauth
 
     </div>
+
 </nav>

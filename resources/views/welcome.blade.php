@@ -24,7 +24,7 @@
       </div>
    </section>
 
-   {{-- seccion 2 video : desde min 16:50  --}}
+   {{-- seccion 2 video : desde min 16:50 hasta min 27.53 --}}
    <section class="mt-24">
        <h1 class="text-gray-600 text-center text-3xl mb-6">CONTENIDO</h1>
 
@@ -82,6 +82,11 @@
          </article>
 
        </div>
+   </section>
+
+   {{-- section 3 dede min 27:53  --}}
+   <section>
+
    </section>
 
 </x-app-layout>
