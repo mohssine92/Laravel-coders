@@ -1,4 +1,4 @@
-<!DOCTYPE html>  {{-- apartir de laravel 8 , este archivo se instacia como componente de blade , ya no se extiende .asi esta es vista de componente de classe--}}
+<!DOCTYPE html>  {{-- plantilla principal --}}
 
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">  {{-- retorna valor config/app.php {'locale' => 'en',} --}}
     <head>
@@ -13,6 +13,7 @@
 
         <!-- Styles -->
         <link rel="stylesheet" href="{{ mix('css/app.css') }}">  {{-- mix() = asset() se posicionan en public/+concatenacion  --}}
+        <link rel="stylesheet" href="{{ asset('vendor/fontawesome-free/css/all.min.css') }}">  {{-- todas vista extienda de esta lantilla tien disp estos stiloss de font  --}}
 
         @livewireStyles  {{-- aqua esta incorporando los estilos de livewire --}}
 
@@ -26,7 +27,7 @@
 
         <div class="min-h-screen bg-gray-100">
 
-            @livewire('navigation-menu')     {{--esta es la forma de instanciar o llamar componente de livewire--}}
+            @livewire('navigation-menu')
 
 
 

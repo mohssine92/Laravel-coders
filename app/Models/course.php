@@ -31,6 +31,11 @@ class course extends Model
 
     }
 
+    /* si paso objeto por href , me toma este atrributo de este modelo , es lo que hace este metodo*/
+    public function getRouteKeyName()
+    {
+        return 'slug';
+    }
 
    /* Relacion de uno a muchos  */
    public function reviews(){
