@@ -26,6 +26,8 @@
         </div>
      </section>
 
+     @livewire('course-index')
+
 
 
 
