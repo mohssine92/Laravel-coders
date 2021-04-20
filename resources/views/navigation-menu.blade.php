@@ -4,8 +4,14 @@
          [
            'name' => 'Home',
            'route' => route('home'),  /* este metodo busqua en archivo de routas , ruta con este nombre y nos devuelva su url  */
-           'active' => request()->routeIs('home')  /* este metodo verifique se actualmente nos encontramos en la ruta dashboard   return  true | false */
+           'active' => request()->routeIs('home')  /* este metodo verifique se actualmente nos encontramos en la ruta home   return  true | false */
          ],
+         [
+           'name' => 'Cursos',
+           'route' => route('courses.index'),
+           'active' => request()->routeIs('courses.index')
+
+         ]
 
     ]
 @endphp

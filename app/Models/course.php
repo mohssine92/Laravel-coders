@@ -31,6 +31,7 @@ class course extends Model
 
     }
 
+     /* subscribir metodo de la clase Model  */
     /* si paso objeto por href , me toma este atrributo de este modelo , es lo que hace este metodo*/
     public function getRouteKeyName()
     {
