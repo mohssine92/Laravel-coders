@@ -31,6 +31,23 @@ class course extends Model
 
     }
 
+
+    /* query Scopes  v16 min : 16*/
+    public function scopeCategory($query, $category_id){
+       if($category_id){
+          return $query->where('category_id', $category_id);
+       }
+
+    }
+
+    public function scopeLevel($query, $level_id){
+        if($level_id){
+           return $query->where('level_id', $level_id);
+        }
+
+     }
+
+
      /* subscribir metodo de la clase Model  */
     /* si paso objeto por href , me toma este atrributo de este modelo , es lo que hace este metodo*/
     public function getRouteKeyName()

@@ -24,9 +24,9 @@
 
           </div>
         </div>
-     </section>
+      </section>
 
-     @livewire('course-index')
+      @livewire('course-index')
 
 
 
