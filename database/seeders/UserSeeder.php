@@ -17,7 +17,7 @@ class UserSeeder extends Seeder
         // Simillar datos de prueba , registro ingresado manuelmente
         User::create([
           'name' => 'Mohssine lmariouh',
-          'email' => 'mohssine.lmariouh@gmail.com',
+          'email' => 'mohssinelmariouh@gmail.com',
           'email_verified_at' => now(),
           'password' => bcrypt('12345678')
         ]);

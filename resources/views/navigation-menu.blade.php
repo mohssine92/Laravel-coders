@@ -9,7 +9,7 @@
          [
            'name' => 'Cursos',
            'route' => route('courses.index'),
-           'active' => request()->routeIs('courses.index')
+           'active' => request()->routeIs('courses.*')
 
          ]
 

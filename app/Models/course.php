@@ -61,19 +61,19 @@ class course extends Model
    }
 
    public function requirements (){
-     return $this->hasMany('App\Model\Requirement');
+     return $this->hasMany('App\Models\Requirement');
    }
 
    public function goals (){
-    return $this->hasMany('App\Model\Goal');
+    return $this->hasMany('App\Models\Goal');
    }
 
   public function audiences (){
-    return $this->hasMany('App\Model\Audience');
+    return $this->hasMany('App\Models\Audience');
   }
 
   public function sections (){
-    return $this->hasMany('App\Model\Section');
+    return $this->hasMany('App\Models\Section');
   }
 
    /* Relacion de uno a mucho inversa ,  */  /* si el nombre de metodo relacion sera diferente a la entidad es obligatorio declarar attributo referente  */
