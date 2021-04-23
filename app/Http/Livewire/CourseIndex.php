@@ -33,7 +33,7 @@ class CourseIndex extends Component
         $levels = Level::all();
 
         $courses = Course::where('status', 3)
-                           ->category( $this->category_id ) /* scope folter */
+                           ->category( $this->category_id ) /* scope filter */
                            ->level( $this->level_id ) /* personalizar filtro */
                            ->latest('id')
                            ->paginate(8);

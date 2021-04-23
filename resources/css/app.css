@@ -5,5 +5,7 @@
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
 
-@import 'bg.css';
-@import 'color.css'
+
+@import "common.css";
+@import "buttons.css"
+
