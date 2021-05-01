@@ -1,5 +1,5 @@
 
-<x-app-layout>  {{-- Componente de blade Princiapl --}}
+<x-app-layout>  {{-- Componente de blade , aqui tenemos nuestra plantilla principal de jetstream de de aqui extendemos --}}
 
    {{-- seccion 1   video : 14 hasta min : 16:50     --}}
    <section class="bg-cover" style="background-image: url( {{asset('img/home/people-2557396_1920.jpg')}} )">  {{-- bg-cover : img bg occupe todo ancho mejor posible  --}}

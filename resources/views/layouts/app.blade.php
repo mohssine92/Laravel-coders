@@ -33,9 +33,8 @@
 
             <!-- Page Content -->
             <main>
-                 {{ $slot }} {{--1- Todos componentes declarados entre el tag de este componente principal se impriman aqui , --}}
-            </main>          {{--2- en caso uso componente de livewire como controlador , la vista del componente de livewire se imprima aqui , con ventaja de extraer al slot de nombre del componente principal y imprimir su estructura inicial
-                                    dentro del slot  --}}
+                 {{ $slot }}
+            </main>
 
         </div>
 
@@ -47,4 +46,3 @@
 
 </html>
 
-{{-- livewire render() cada solicitud se vuelva a ejecutar este metodo  --}}

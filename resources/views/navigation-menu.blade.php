@@ -4,7 +4,7 @@
          [
            'name' => 'Home',
            'route' => route('home'),  /* este metodo busqua en archivo de routas , ruta con este nombre y nos devuelva su url  */
-           'active' => request()->routeIs('home')  /* este metodo verifique se actualmente nos encontramos en la ruta home   return  true | false */
+           'active' => request()->routeIs('home')  /* return  true | false */
          ],
          [
            'name' => 'Cursos',
@@ -28,7 +28,7 @@
 
                 <!-- Logo -->
                 <div class="flex-shrink-0 flex items-center">
-                    <a href="{{ route('dashboard') }}">
+                    <a href="{{ route('home') }}">
                         <x-jet-application-mark class="block h-9 w-auto" />
                     </a>
                 </div>

@@ -52,6 +52,7 @@ class Kernel extends HttpKernel
      *
      * @var array
      */
+    /* Todos los middleware definidos en Laravel , al crear middleware , se declara aqui  */
     protected $routeMiddleware = [
         'auth' => \App\Http\Middleware\Authenticate::class,
         'auth.basic' => \Illuminate\Auth\Middleware\AuthenticateWithBasicAuth::class,

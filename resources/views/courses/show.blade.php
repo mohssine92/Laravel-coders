@@ -125,7 +125,20 @@
                        </div>
                    </div>
 
-                   <a class="btn btn-danger btn-block mt-4 cursor-pointer">Llevar este curso</a>
+                   @can('enrolled', $course)  {{-- Policy  V19 last min --}}
+
+                   <a href="{{route('course.status',$course)}}"  class="btn btn-danger btn-block mt-4 cursor-pointer focus:outline-none">Continuar con el curso</a>
+
+                   @else
+
+                   <form action="{{route('courses.enrolled',$course)}}" method="post">
+                      @csrf
+                     <button class="btn btn-danger btn-block mt-4 cursor-pointer focus:outline-none" type="submit">Llevar este curso</button>
+                   </form>
+
+                   @endcan
+
+
 
                </div>
            </section>
