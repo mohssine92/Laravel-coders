@@ -25,9 +25,9 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 })->name('dashboard');
 
 
-Route::get('cursos', [CourseController::class ,'index'] )->name('courses.index');
+Route::get('cursos', [CourseController::class ,'index'] )->name('courses.index');  /* todos cursos  */
 
-Route::get('cursos/{course}', [CourseController::class, 'show' ])->name('courses.show');
+Route::get('cursos/{course}', [CourseController::class, 'show' ])->name('courses.show');  /* mas detelle sobre curso - y similares  */
 
 Route::post('courses/{course}/enrolled',[CourseController::class, 'enrolled'])->middleware('auth')->name('courses.enrolled'); /* Habbilita matricula de alumno a curso */
 

@@ -9,7 +9,7 @@ use Illuminate\View\Component;
 class AppLayout extends Component     /* php artisan make:component  */
 {
     /**
-     * Get the view / contents that represents the component.
+     * Get the view / contents that represents the component. Plantilla princiapl
      *
      * @return \Illuminate\View\View
      */
