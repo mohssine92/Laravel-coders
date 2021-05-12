@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\CourseController;
 
-
+use App\Http\Livewire\CourseStatus;
 
 /*
 |--------------------------------------------------------------------------
@@ -27,12 +27,10 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 
 Route::get('cursos', [CourseController::class ,'index'] )->name('courses.index');  /* todos cursos  */
 
-Route::get('cursos/{course}', [CourseController::class, 'show' ])->name('courses.show');  /* mas detelle sobre curso - y similares  */
+Route::get('cursos/{course}', [CourseController::class, 'show' ])->name('courses.show');  /* mas detelle sobre 1 curso - y similares  */
 
 Route::post('courses/{course}/enrolled',[CourseController::class, 'enrolled'])->middleware('auth')->name('courses.enrolled'); /* Habbilita matricula de alumno a curso */
 
-Route::get('course.status/{course}', function($course){
-    return 'x0000xxxxxxxxxxxxx13';
-})->name('course.status');
+Route::get('course-status/{course}', CourseStatus::class )->name('courses.status');  // Control del avance del curso - use componentLivewire as controller
 
 

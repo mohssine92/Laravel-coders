@@ -8,13 +8,12 @@ use App\Models\course;
 class CourseController extends Controller
 {
     public function index () {
-
       return view('courses.index');
-
     }
 
-    /* este parametro recibido desde la url  */
+
     public function show (Course $course) {
+    /* este parametro recibido desde la url  */
 
        $similares = Course::where('category_id',$course->category_id)
                           ->where('id','!=',$course->id)
@@ -27,15 +26,19 @@ class CourseController extends Controller
 
     }
 
+
+
     public function enrolled (Course $course){
       /* matriculacion de alumno al curso V19 M7 */
 
        $course->students()->attach(auth()->user()->id);
 
-       return redirect()->route('course.status',$course);
-
-
+       return redirect()->route('courses.status',$course);
 
     }
+
+
+
+
 
 }

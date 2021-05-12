@@ -72,11 +72,12 @@ class course extends Model
     return $this->hasMany('App\Models\Audience');
   }
 
+   // relacion de uno a muchos
   public function sections (){
     return $this->hasMany('App\Models\Section');
   }
 
-   /* Relacion de uno a mucho inversa ,  */  /* si el nombre de metodo relacion sera diferente a la entidad es obligatorio declarar attributo referente  */
+   /* Relacion de uno a mucho inversa */
    public function teacher(){
      return $this->belongsTo('App\Models\User', 'user_id');
    }
@@ -106,6 +107,7 @@ class course extends Model
    public function lessons()
    {
     return $this->hasManyThrough('App\Models\Lesson', 'App\Models\Section');  /* section modelo intermedio  */
+    // esta relacion me recupera all lessons has each section of this course
    }
 
 

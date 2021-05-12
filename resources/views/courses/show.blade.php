@@ -1,3 +1,4 @@
+{{-- vista normal --}}
 <x-app-layout>
      {{-- contenido anterior se cae en el slug  --}}
 
@@ -127,7 +128,7 @@
 
                    @can('enrolled', $course)  {{-- Policy  V19 last min --}}
 
-                   <a href="{{route('course.status',$course)}}"  class="btn btn-danger btn-block mt-4 cursor-pointer focus:outline-none">Continuar con el curso</a>
+                   <a href="{{route('courses.status',$course)}}"  class="btn btn-danger btn-block mt-4 cursor-pointer focus:outline-none">Continuar con el curso</a>
 
                    @else
 

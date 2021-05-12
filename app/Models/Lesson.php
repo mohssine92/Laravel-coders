@@ -12,6 +12,14 @@ class Lesson extends Model
      /* Asignacion masiva indicando los campo bloqueados no se insertan en tabla   */
      protected $guarded = ['id'];
 
+    // añadir attributo al objeto Lesson , como se fuera propieda del objeto
+    public function getCompletedAttribute(){
+      // escribir logica que quiere que tenga este attributo
+       return $this->users->contains(auth()->user()->id); // : True
+
+    }
+
+
      /* relacion uno a uno  */
     public function description()
     {

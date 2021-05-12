@@ -1,4 +1,4 @@
-{{-- rendizar componente principal , el que contiene nuestra plantilla princiapl --}}
+{{-- Vista normal --}}
 <x-app-layout>
   {{-- todo contenido interior se imprima en el posicion del slot de este componente  --}}
 

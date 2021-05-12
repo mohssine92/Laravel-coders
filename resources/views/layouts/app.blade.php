@@ -13,7 +13,7 @@
 
         <!-- Styles -->
         <link rel="stylesheet" href="{{ mix('css/app.css') }}">  {{-- mix() = asset() se posicionan en public/+concatenacion  --}}
-        <link rel="stylesheet" href="{{ asset('vendor/fontawesome-free/css/all.min.css') }}">  {{-- todas vista extienda de esta lantilla tien disp estos stiloss de font  --}}
+        <link rel="stylesheet" href="{{ asset('vendor/fontawesome-free/css/all.min.css') }}">
 
         @livewireStyles  {{-- aqua esta incorporando los estilos de livewire --}}
 
@@ -23,7 +23,7 @@
 
     <body class="font-sans antialiased">
 
-      {{--   <x-jet-banner /> --}}
+
 
         <div class="min-h-screen bg-gray-100">
 
@@ -31,10 +31,11 @@
 
 
 
-            <!-- Page Content -->
+            <!-- Page Content -->  {{-- Contenido se injecta en este espacio  --}}
             <main>
                  {{ $slot }}
             </main>
+
 
         </div>
 
