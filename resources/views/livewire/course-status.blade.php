@@ -2,11 +2,27 @@
 
      <div class="container grid grid-cols-3 gab-8">
 
+
         <div class="col-span-2">
-            {!!$current->ifram!!}
+            {!!$current->ifram!!} {{-- current es primer lesson incompleto --}}
             {{ $current->name }}
 
+            <p> Previous: @if ($this->previous)
+                {{ $this->previous->id }}
+                @endif
+            </p>
+
+            <h1>{{ $this->index }}</h1>
+
+            <p>
+                Next: @if ($this->next)
+                {{ $this->next->id }}
+              @endif
+           </p>
+
         </div>
+
+
 
         <div class="card">
            <div class="card-body">
@@ -38,13 +54,12 @@
                        @foreach ($section->lessons as $lesson )
                          {{-- lessons de cada seccion --}}
                          <li>
-                             <a href="">{{ $lesson->id }}@if ($lesson->completed)
+                             <a  class="cursor-pointer" wire:click="changeLesson({{$lesson}})">
+                                 {{ $lesson->id }}@if ($lesson->completed)
 
                                 (completed)
-
-
-
-                             @endif </a>
+                             @endif
+                             </a>
                          </li>
                        @endforeach
                     </ul>

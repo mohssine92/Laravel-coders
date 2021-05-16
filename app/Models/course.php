@@ -75,6 +75,7 @@ class course extends Model
    // relacion de uno a muchos
   public function sections (){
     return $this->hasMany('App\Models\Section');
+    //  return coleccion de todos secciones pertenezan a un curso
   }
 
    /* Relacion de uno a mucho inversa */
@@ -108,6 +109,7 @@ class course extends Model
    {
     return $this->hasManyThrough('App\Models\Lesson', 'App\Models\Section');  /* section modelo intermedio  */
     // esta relacion me recupera all lessons has each section of this course
+    // retuena una colleccion de los lessons pertenezan a un curso = array
    }
 
 

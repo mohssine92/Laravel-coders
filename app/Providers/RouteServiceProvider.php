@@ -1,5 +1,8 @@
 <?php
 
+
+// Uno de los proveedores de servicios más importantes de su aplicación
+
 namespace App\Providers;
 
 use Illuminate\Cache\RateLimiting\Limit;

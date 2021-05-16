@@ -14,7 +14,7 @@ class Lesson extends Model
 
     // añadir attributo al objeto Lesson , como se fuera propieda del objeto
     public function getCompletedAttribute(){
-      // escribir logica que quiere que tenga este attributo
+
        return $this->users->contains(auth()->user()->id); // : True
 
     }
@@ -40,6 +40,7 @@ class Lesson extends Model
     /* Relacion de mucho a mucho , consta de tabal pivote */
     public function users ()
     {
+       // returna colleccion de todos registrso relacionados al lesson comunicado
        return $this->belongsToMany('App\Models\User');
     }
 
