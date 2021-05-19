@@ -35,7 +35,7 @@
   padding-top: 56.25%;
 }
 
-.embed-responsive iframe {
+.embed-responsive iframe {  /* infram viene dede la base de datos */
  position: absolute;
  top: 0;
  left: 0;

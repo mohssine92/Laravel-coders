@@ -24,6 +24,8 @@ class Lesson extends Model
     public function description()
     {
        return $this->hasOne('App\Models\Description');
+       // returna objeto de la decripcio de la leccion en case de exitir registro
+       // que describa la leccion.
     }
 
     /* relacion uno a mucho inverrsa */

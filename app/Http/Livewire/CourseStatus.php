@@ -47,7 +47,7 @@ class CourseStatus extends Component
         if($this->index == 0){  // index = getIndexProperty
            return null;
         }else{
-           return $this->course->lessons[$this->index -1];
+           return $this->course->lessons[$this->index -1]; // relacion indirecta
         }
      }// return objetp
 

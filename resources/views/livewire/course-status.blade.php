@@ -1,25 +1,56 @@
+{{-- este es template de component de livewire esta usado como controlador , asi este template se injecta en el slot del componente de deseño que estamos usando  , por ello el componete de deseño le esta proviendo todos los scripts
+    csss , js , boostrap , tailwwind , etc ....--}}
 <div class="mt-8">
 
-     <div class="container grid grid-cols-3 gab-8">
+     <div class="container grid grid-cols-3 gap-8">
 
 
         <div class="col-span-2">
-            {!!$current->ifram!!} {{-- current es primer lesson incompleto --}}
-            {{ $current->name }}
+              <div class="embed-responsive">
+                  {!!$current->ifram!!} {{-- current es primer lesson incompleto / curso actual --}}
+              </div>
 
-            <p> Previous: @if ($this->previous) {{-- es una prop computada --}}
-                {{ $this->previous->id }}
-                @endif
-            </p>
+              <h1 class="text-3xl text-gray-600 font-bold mt-4">
+                {{ $current->name }}
+              </h1>
 
-            <h1>{{ $this->index }}</h1>   {{-- es una prop computada --}}
-
-            <p>
-                Next: @if ($this->next)  {{-- es una prop computada --}}
-                {{ $this->next->id }}
+              {{-- descripcion del leccion es opcional , pude ser una leccion no tenrer description--}}
+              @if ($current->description)
+                <div class="text-gray-600">
+                   {{$current->description->name}}
+                </div>
               @endif
-           </p>
 
+              {{-- marcar la leccion como culminada --}}
+              <div class="flex items-center mt-4 cursor-pointer">
+                 <i class="fa fa-toggle-off text-2xl text-gray-600"></i>
+                 <p class="text-sm ml-2">Marcar esta unidad como culminada</p>
+              </div>
+
+              {{-- next / previouse --}}
+              <div class="card mt-2">
+                <div class="card-body flex text-green-500 font-bold">
+                   @if ($this->previous)
+                    <a  wire:click="changeLesson({{$this->previous}})" class="cursor-pointer">Tema anterior</a>
+                   @endif
+                   @if ($this->next)
+                    <a  wire:click="changeLesson({{$this->next}})" class="ml-auto cursor-pointer">Siguiente tema</a>
+                   @endif
+                </div>
+             </div>
+
+              <p>Inidice {{ $this->index }}</p>   {{-- es una prop computada --}}
+
+              <p>Previous: @if ($this->previous) {{-- es una prop computada --}}
+                  {{ $this->previous->id }}
+                  @endif
+              </p>
+
+              <p>
+                  Next: @if ($this->next)  {{-- es una prop computada --}}
+                  {{ $this->next->id}}
+                @endif
+              </p>
         </div>
 
 
