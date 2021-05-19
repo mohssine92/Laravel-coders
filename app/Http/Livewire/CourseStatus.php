@@ -17,32 +17,34 @@ class CourseStatus extends Component
     public $course, $current;
 
     public function mount(Course $course) {
-        // este funccion se jecuta solo en primer instancia del component class .
+        // Esta funccion se Ejecuta solo en primer instancia del component class .
 
          $this->course = $course;
 
-         foreach ($course->lessons as $lesson) { // relacion lesson recupera collection.
+         foreach ($course->lessons as $lesson) { // relacion lesson decuelve coleccion
 
-           if(!$lesson->completed){ //  Attr adicinal al modelo lesson es de logica .
-              $this->current = $lesson;
+           if(!$lesson->completed){ //  false
+              $this->current = $lesson; // current el curso que esta alumno viendo
               break;
            }
 
          }
     }
 
-
-    // propiedades computadas , surge la necesida para no ensusiar codigo por tantas condiciones
-     // que sufran estas propiedades , es mejor manejar condiciones de manera interior y sera valida
-     // en todo el entorno del componente
+    // estas prop computadas cuando se renderizen desde la plantilla se ejecuten sus logicas para responder
+    // tambien tener en cuenta en componentes de livewire , cuando se ejecuta algun funcion , render se ejecuta la plantilla por ciclo de vida ,lo que hace la plantilla renderiza propiedades , asi las props computadas renderizadas
+    // vuelvan a ejecutarse y respondan segun .
+    // estas son propiedades computadas de este modelo
+    // cumpla la necesidad que tendra este modelo para manipular sus elementos de pantilla .
      public function getIndexProperty(){
-        // pluck() extre ids de la coleccion , genera nueva coleccion
+        // pluck() extrae ids de la coleccion , genera nueva coleccion
         // search() returna index en la coleccion
+        // esta logica para obtener index del curso que esta viendo el alumno .
         return $this->course->lessons->pluck('id')->search($this->current->id);
      } // number
 
      public function getPreviousProperty(){
-        if($this->index == 0){
+        if($this->index == 0){  // index = getIndexProperty
            return null;
         }else{
            return $this->course->lessons[$this->index -1];
@@ -50,7 +52,7 @@ class CourseStatus extends Component
      }// return objetp
 
     public function getNextProperty(){
-        if($this->index == $this->course->lessons->count()-1 ){
+        if($this->index == $this->course->lessons->count()-1 ){  // ultimo index de la coleccion
             return null;
         }else{
             return $this->course->lessons[$this->index +1];
@@ -62,12 +64,13 @@ class CourseStatus extends Component
     // se dispar depende evento click , su ejecuccion resuelta ejecuccion de render metod , resulta actualizacion
     // de las props en template del componete .
     public function changeLesson (Lesson $lesson) {
+       // tener en cuenta que estamos obteniendo objeto de lesson de dos formas distintas , usando relacion directa y indirecta
+       // esto adiciona props lo que hace que los objetos se concideran no autenticados
         $this->current = $lesson;
     }
 
     public function render()
     {
-       //este metedo detecta cualquier cambio tanto en fucciones como en props se Ejecuta , genial :(
         return view('livewire.course-status');
     }
 

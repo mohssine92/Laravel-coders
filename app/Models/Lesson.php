@@ -9,14 +9,14 @@ class Lesson extends Model
 {
     use HasFactory;
 
-     /* Asignacion masiva indicando los campo bloqueados no se insertan en tabla   */
+     /* Asignacion masiva indicando los propiedad del objeto bloqueados no se insertan en tabla  */
      protected $guarded = ['id'];
 
-    // añadir attributo al objeto Lesson , como se fuera propieda del objeto
+    // propiedad computada
     public function getCompletedAttribute(){
-
-       return $this->users->contains(auth()->user()->id); // : True
-
+      // esta logica verifica si objeto con id alumno autenticado existe en la coleccion returna true
+      // estas props computadas nos vitamina con mas detalles sobre el Objetomodelo comunicado
+       return $this->users->contains(auth()->user()->id);
     }
 
 
@@ -40,7 +40,7 @@ class Lesson extends Model
     /* Relacion de mucho a mucho , consta de tabal pivote */
     public function users ()
     {
-       // returna colleccion de todos registrso relacionados al lesson comunicado
+       // returna colleccion de objetos de alumnos que han terminado esta leccion comunicada
        return $this->belongsToMany('App\Models\User');
     }
 

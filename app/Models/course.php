@@ -9,17 +9,18 @@ class course extends Model
 {
     use HasFactory;
 
-     /* Asignacion masiva indicando los campo bloqueados no se insertan en tabla   */
+     /* Asignacion masiva indicando , propiedades del objeto comunicado , que no deben insertarse en coleccion en Db   */
      protected $guarded = ['id','status'];
 
-    /* Generar atrributos con el numero de registros relacionados al id course . Ex =>  reviews_count: 0  */
+    /* Adiciona atrributos al objeto del curso comunicado con el numero de registros relacionados al id course . Ex =>  reviews_count: 0  */
+    // se usa para saber cuantos alumnos registrados en curso y cuantos reviews tiene un curso , mas dertalles sobre el objeto curso
     protected $withCount = ['students', 'reviews'];
 
     const BORRADOR = 1;
     const REVISION = 2;
     const PUBLICADO = 3;
 
-    /* añadir atrributo al modelo  */
+    // propieda computada
     /* avg() sacar promedio de la cifra en columna rating */
     public function getRatingAttribute()
     {
@@ -27,8 +28,8 @@ class course extends Model
          return round( $this->reviews->avg('rating') , 1 );
        }else{
            return 5;
+           // asi cuando el curso nuevo se inicia con 5 estrellas
        }
-
     }
 
 
@@ -49,7 +50,8 @@ class course extends Model
 
 
      /* subscribir metodo de la clase Model  */
-    /* si paso objeto por href , me toma este atrributo de este modelo , es lo que hace este metodo*/
+    /* si paso paso objeto como argumento  me toma esta propiedad de este modelo , es lo que hace este metodo*/
+    // realmente hemos aplicado concepto de redefinicion .
     public function getRouteKeyName()
     {
         return 'slug';
@@ -72,7 +74,7 @@ class course extends Model
     return $this->hasMany('App\Models\Audience');
   }
 
-   // relacion de uno a muchos
+   // relacion de uno a muchos y directa
   public function sections (){
     return $this->hasMany('App\Models\Section');
     //  return coleccion de todos secciones pertenezan a un curso

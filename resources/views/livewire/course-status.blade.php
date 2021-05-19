@@ -7,15 +7,15 @@
             {!!$current->ifram!!} {{-- current es primer lesson incompleto --}}
             {{ $current->name }}
 
-            <p> Previous: @if ($this->previous)
+            <p> Previous: @if ($this->previous) {{-- es una prop computada --}}
                 {{ $this->previous->id }}
                 @endif
             </p>
 
-            <h1>{{ $this->index }}</h1>
+            <h1>{{ $this->index }}</h1>   {{-- es una prop computada --}}
 
             <p>
-                Next: @if ($this->next)
+                Next: @if ($this->next)  {{-- es una prop computada --}}
                 {{ $this->next->id }}
               @endif
            </p>
@@ -70,6 +70,7 @@
 
            </div>
         </div>
+
 
      </div>
 
