@@ -25,12 +25,12 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 })->name('dashboard');
 
 
-Route::get('cursos', [CourseController::class ,'index'] )->name('courses.index');  /* todos cursos  */
+Route::get('cursos', [CourseController::class ,'index'] )->name('courses.index');  /* vista de curso  */
 
 Route::get('cursos/{course}', [CourseController::class, 'show' ])->name('courses.show');  /* mas detelle sobre 1 curso - y similares  */
 
 Route::post('courses/{course}/enrolled',[CourseController::class, 'enrolled'])->middleware('auth')->name('courses.enrolled'); /* Habbilita matricula de alumno a curso */
 
-Route::get('course-status/{course}', CourseStatus::class )->name('courses.status');  // Control del avance del curso - use componentLivewire as controller
+Route::get('course-status/{course}', CourseStatus::class )->middleware('auth')->name('courses.status');  // Control del avance del curso - use componentLivewire as controller
 
 

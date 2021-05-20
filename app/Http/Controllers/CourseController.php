@@ -5,15 +5,24 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\course;
 
+
+
 class CourseController extends Controller
 {
+
+
+
     public function index () {
       return view('courses.index');
     }
 
 
     public function show (Course $course) {
-    /* este parametro recibido desde la url  */
+
+       // veridico si el Objeto curse esta aprobado , para autorizar acceso a esta ruta .
+       // autoriz espera boolean . 403  THIS ACTION IS UNAUTHORIZED.
+       // Publish es una funcion de la class Policy
+       $this->authorize('published',$course);
 
        $similares = Course::where('category_id',$course->category_id)
                           ->where('id','!=',$course->id)
@@ -22,7 +31,7 @@ class CourseController extends Controller
                           ->take(5)
                           ->get();
 
-         return view('courses.show', compact('course','similares'));
+        return view('courses.show', compact('course','similares'));
 
     }
 
