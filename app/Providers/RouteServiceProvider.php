@@ -59,6 +59,11 @@ class RouteServiceProvider extends ServiceProvider
                 ->prefix('admin')
                 ->namespace($this->namespace)
                 ->group(base_path('routes/admin.php'));
+
+            // todas las rutas definidas en este archivo tiene el Mdlware auth
+            Route::middleware('web', 'auth')
+                ->namespace($this->namespace)
+                ->group(base_path('routes/instructor.php'));
         });
     }
 

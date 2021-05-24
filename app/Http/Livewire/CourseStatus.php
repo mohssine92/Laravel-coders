@@ -84,7 +84,8 @@ class CourseStatus extends Component
     }// return object
 
     public function getAdvanceProperty(){
-       $i = 0;
+       // implementada para la barra de prograso dinamica en funcion de las seccion culminadas
+        $i = 0;
 
        foreach($this->course->lessons as $lesson){
          if($lesson->completed){
@@ -118,9 +119,10 @@ class CourseStatus extends Component
     public function completed(){
         if($this->current->completed){
            // eleminar registro que es punto de referencia para saber si la leccion culminada
+           // nuestra logica es cuando un user culmina una leccion es insertar registro en la relacion lesson user .
             $this->current->users()->detach(auth()->user()->id);
         }else{
-           // agregar registro
+           // agregar registro en la relacion user lesson
             $this->current->users()->attach(auth()->user()->id);
         }
 
