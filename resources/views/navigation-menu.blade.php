@@ -58,7 +58,7 @@
                 <!-- Teams Dropdown -->
                 @if(Laravel\Jetstream\Jetstream::hasTeamFeatures())
                     <div class="ml-3 relative">
-                        <x-jet-dropdown align="right" width="60">
+                        <x-jet-dropdown align="right" width="60"> {{-- componente de jestream  --}}
 
                             <x-slot name="trigger">
                                 <span class="inline-flex rounded-md">
@@ -114,7 +114,7 @@
                 @auth  {{-- directiva de blade muestra contenido solo cuando user esta autentificado --}}
 
                     <x-jet-dropdown align="right" width="48">
-                            <x-slot name="trigger">
+                            <x-slot name="trigger">  {{-- slot de nombre --}}
                                 @if (Laravel\Jetstream\Jetstream::managesProfilePhotos())
                                     <button class="flex text-sm border-2 border-transparent rounded-full focus:outline-none focus:border-gray-300 transition duration-150 ease-in-out">
                                         <img class="h-8 w-8 rounded-full object-cover" src="{{ Auth::user()->profile_photo_url }}" alt="{{ Auth::user()->name }}" />
@@ -142,6 +142,22 @@
                                     {{ __('Profile') }}
                                 </x-jet-dropdown-link>
 
+
+                                @can('See dashboard') {{--Directiva de blade recupera campo name de tabla permissions - asi si el user autenticado no consta del permiso declarado aqui no podra ver el link dentro del escop de la directiva--}}
+                                  <x-jet-dropdown-link href="{{ route('admin.home') }}"> {{-- agragado por mi . rederige a la ruta instructor --}}
+                                       {{-- hemos dado a la ruta nombre . asi se va apuntar el nombre del end-point --}}
+                                      {{ __('Admin') }}
+                                  </x-jet-dropdown-link>
+                                @endcan
+
+
+                                @can('Read Courses') {{--Directiva de blade recupera campo name de tabla permissions - asi si el user autenticado no consta del permiso declarado aqui no podra ver el link dentro del escop de la directiva--}}
+                                    <x-jet-dropdown-link href="{{ route('instructor.courses.index') }}"> {{-- agragado por mi . rederige a la ruta instructor --}}
+                                         {{-- hemos dado a la ruta nombre . asi se va apuntar el nombre del end-point --}}
+                                        {{ __('Instructor') }}
+                                    </x-jet-dropdown-link>
+                                @endcan
+
                                 @if (Laravel\Jetstream\Jetstream::hasApiFeatures())
                                     <x-jet-dropdown-link href="{{ route('api-tokens.index') }}">
                                         {{ __('API Tokens') }}
@@ -154,10 +170,11 @@
                                 <form method="POST" action="{{ route('logout') }}">
                                     @csrf
 
-                                    <x-jet-dropdown-link href="{{ route('logout') }}"
-                                             onclick="event.preventDefault();
-                                                    this.closest('form').submit();">
-                                        {{ __('Log Out') }}
+                                    <x-jet-dropdown-link href="{{ route('logout') }}" {{-- componenete jestream -  --}}
+                                                         onclick="event.preventDefault();
+                                                         this.closest('form').submit();">
+
+                                    {{ __('Log Out') }}  {{-- slot --}}
                                     </x-jet-dropdown-link>
                                 </form>
                             </x-slot>
@@ -167,8 +184,8 @@
 
 
                     <div class="align="right" width="48"">
-                        <x-jet-nav-link href="{{ route('login') }}" :active="request()->routeIs('login')">
-                            Login
+                        <x-jet-nav-link href="{{ route('login') }}" :active="request()->routeIs('login')"> {{-- component de jestrem (Componente de blade anonimo) --}}
+                            Login {{-- slot --}}
                        </x-jet-nav-link>
                        <x-jet-nav-link href="{{ route('register') }}" :active="request()->routeIs('register') ">
                             Register
@@ -236,6 +253,18 @@
                 <x-jet-responsive-nav-link href="{{ route('profile.show') }}" :active="request()->routeIs('profile.show')">
                     {{ __('Profile') }}
                 </x-jet-responsive-nav-link>
+
+                @can('See dashboard')
+                <x-jet-responsive-nav-link href="{{ route('admin.home') }}" :active="request()->routeIs('instructor.courses.index')">
+                    {{ __('Admin') }}
+                </x-jet-responsive-nav-link>
+                @endcan
+
+                @can('Read Courses')
+                <x-jet-responsive-nav-link href="{{ route('instructor.courses.index') }}" :active="request()->routeIs('instructor.courses.index')">
+                    {{ __('Instructor') }}
+                </x-jet-responsive-nav-link>
+                @endcan
 
                 @if (Laravel\Jetstream\Jetstream::hasApiFeatures())
                     <x-jet-responsive-nav-link href="{{ route('api-tokens.index') }}" :active="request()->routeIs('api-tokens.index')">

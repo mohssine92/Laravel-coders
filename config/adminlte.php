@@ -19,7 +19,7 @@ return [
     'title_postfix' => '',
 
     /*
-    |--------------------------------------------------------------------------
+    |--------------------------------------------------------------------------P
     | Favicon
     |--------------------------------------------------------------------------
     |
@@ -45,15 +45,16 @@ return [
     |
     */
 
-    'logo' => '<b>Admin</b>LTE',
-    'logo_img' => 'vendor/adminlte/dist/img/AdminLTELogo.png',
-    'logo_img_class' => 'brand-image img-circle elevation-3',
+    'logo' => '<b>Coders</b> Laravel',
+    'logo_img' => 'vendor/adminlte/dist/img/AdminLTELogo.png', // colocar url donde tiene alojado tu logo tipo
+    'logo_img_class' => 'brand-image img-circle elevation-3',  // estos clases de Estilo que esta dando al logotipo
     'logo_img_xl' => null,
     'logo_img_xl_class' => 'brand-image-xs',
     'logo_img_alt' => 'AdminLTE',
 
     /*
     |--------------------------------------------------------------------------
+    |
     | User Menu
     |--------------------------------------------------------------------------
     |
@@ -176,7 +177,7 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | URLs
+    | URLs : Dashboard
     |--------------------------------------------------------------------------
     |
     | Here we can modify the url settings of the admin panel.
@@ -187,7 +188,7 @@ return [
     */
 
     'use_route_url' => false,
-    'dashboard_url' => 'home',
+    'dashboard_url' => '/', // logo a que url se apunta , en este caso se apunta a la pagina principal
     'logout_url' => 'logout',
     'login_url' => 'login',
     'register_url' => 'register',
@@ -223,23 +224,43 @@ return [
     |
     */
 
+     //  links / Users List / Role List / Dashboard
     'menu' => [
         [
             'text' => 'search',
             'search' => true,
             'topnav' => true,
         ],
-        [
+       /*  [
             'text' => 'blog',
             'url'  => 'admin/blog',
-            'can'  => 'manage-blog',
+            'ican'  => 'manage-blog',
+        ], */
+        [    // Dashboard
+            'text'   => 'Dashboard',
+            'route'  => 'admin.home', // llave url si quiero apuntar a una ruta por su url , si voy a puntar por nombre uso route como es este caso
+            'icon'   => 'fas fa-fw fa-tachometer-alt',  // fa-fw no tocar es una clase que usa adminlte para generar especiado entre icono y text => Roles
+            'can'    => 'See dashboard' // para proteger los links debo a cada uno de ellos pasarle attribute can
         ],
         [
-            'text'        => 'pages',
-            'url'         => 'admin/pages',
-            'icon'        => 'far fa-fw fa-file',
-            'label'       => 4,
-            'label_color' => 'success',
+            'text'        => 'Role List',
+            'route'         => 'admin.roles.index', // llave url si quiero apuntar a una ruta por su url , si voy a puntar por nombre uso route como es este caso
+            'icon'        => 'fas fa-fw fa-user-cog',  // fa-fw no tocar es una clase que usa adminlte para generar especiado entre icono y text => Roles
+             // 'label'       => 4,
+            // 'label_color' => 'success',
+            'can'  => 'List role',
+
+            // s queremos que el link siempre este activo cuando la ruta comienza con admin/roles hacemos l siguiente
+           'active'   => ['admin/roles*'] // le decimos basta que comiense con admin/roles para que este link este activo .
+        ],
+        [
+            'text'   => 'Users List',
+            'route'  => 'admin.users.index',
+            'icon'   => 'fas fa-fw fa-users',
+            'can'    => 'Read users',
+             // 'label'       => 4,
+            // 'label_color' => 'success',
+            'active'   => ['admin/users*'] // le decimos basta que comiense con admin/roles para que este link este activo .
         ],
         ['header' => 'account_settings'],
         [
@@ -426,5 +447,7 @@ return [
     | https://github.com/jeroennoten/Laravel-AdminLTE/wiki/Other-Configuration
     */
 
-    'livewire' => false,
+    //'livewire' => false,  //php artisan make:livewire admin-users
+
+    'livewire' => true,
 ];

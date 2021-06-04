@@ -26,13 +26,14 @@ class DatabaseSeeder extends Seeder
 
       // \App\Models\User::factory(10)->create();
 
+        $this->call(PermissionSeeder::class);// primero los permisos y luego los Roles . porque roles requiere de los permisos
+        $this->call(RoleSeeder::class); // ejecutar en orden de la necesidad , lo que llemamos dependencias de objetos
         $this->call(UserSeeder::class);
         $this->call(LevelSeeder::class);
         $this->call(CategorySeeder::class);
         $this->call(PriceSeeder::class);
         $this->call(platformSeeder::class);
         $this->call(CourseSeeeder::class);
-
 
     }
 

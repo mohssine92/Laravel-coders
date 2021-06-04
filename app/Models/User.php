@@ -10,6 +10,9 @@ use Laravel\Fortify\TwoFactorAuthenticatable;
 use Laravel\Jetstream\HasProfilePhoto;
 use Laravel\Sanctum\HasApiTokens;
 
+use Spatie\Permission\Traits\HasRoles; // paquetes de spatie.be ver video 28
+
+
 class User extends Authenticatable
 {
     use HasApiTokens;
@@ -17,6 +20,8 @@ class User extends Authenticatable
     use HasProfilePhoto;
     use Notifiable;
     use TwoFactorAuthenticatable;
+    use HasRoles; // parece php intelephense no ha reconocido la classe , profe declaro que funcinaria sin proplema ./ asi  ya estoy icluyendo la relacion de rol y permission con user
+
 
 
 
@@ -83,7 +88,8 @@ class User extends Authenticatable
        return $this->belongsToMany('App\Models\Course');
      }
 
-     // Relacion de mucho a mucho consta de tabla pivote
+     // Relacion de mucho a mucho consta de tabla pivote ,
+     // lessons culminados por user alumno
      public function lessons ()
      {
         return $this->belongsToMany('App\Models\Lesson');

@@ -56,12 +56,15 @@ class RouteServiceProvider extends ServiceProvider
                 ->group(base_path('routes/web.php'));
 
             Route::middleware('web', 'auth')
-                ->prefix('admin')
+                ->prefix('admin')  // este prefijo hace la  busqueda de end-point en el archivo routes/admin
+                ->name('admin.')
                 ->namespace($this->namespace)
                 ->group(base_path('routes/admin.php'));
 
             // todas las rutas definidas en este archivo tiene el Mdlware auth
             Route::middleware('web', 'auth')
+                ->name('instructor.') // este prefijo se repita en todos los nombre de los end-points del archivo routes/instrucor  => a name roote
+                ->prefix('instructor')  // este prefijo hace la  busqueda de end-point en el archivo routes/instructor => uri  domain/instructor/courses
                 ->namespace($this->namespace)
                 ->group(base_path('routes/instructor.php'));
         });

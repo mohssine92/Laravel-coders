@@ -15,14 +15,17 @@ class UserSeeder extends Seeder
     public function run()
     {
         // Simillar datos de prueba , registro ingresado manuelmente
-        User::create([
-          'name' => 'Mohssine lmariouh',
-          'email' => 'mohssinelmariouh@gmail.com',
-          'email_verified_at' => now(),
-          'password' => bcrypt('12345678')
-        ]);
+      $user = User::create([
+            'name' => 'Mohssine lmariouh',
+            'email' => 'mohssinelmariouh@gmail.com',
+            'email_verified_at' => now(),
+            'password' => bcrypt('12345678')
+      ]);
 
-        /* para evitar escribir n objetos de tipo user hacemos uso de FactoriyClass , se va generar Fake datos .. video : 9 */
-        User::factory(99)->create();
+      //laravel permission nos proporciona este metodo de relacionar non con id sino con nombre de rol , pero la inserftacion en tabla sera con id
+       $user->assignRole('Admin');
+
+       /* para evitar escribir n objetos de tipo user hacemos uso de FactoriyClass , se va generar Fake datos .. video : 9 */
+       User::factory(99)->create();
     }
 }

@@ -1,13 +1,17 @@
+{{-- vista simple de blade rederizada por parte de metodo de controller resource --}}
+
 @extends('adminlte::page')
 
 @section('title', 'CodersFree')
 
 @section('content_header')
-    <h1>CodersFree</h1>
+    <h1>Users list</h1>
 @stop
 
 @section('content')
-    <p>Welcome to this beautiful admin panel test-1.</p>
+    {{-- renderizar componnete de livewire Livewire/AdminUsers --}}
+    @livewire('admin-users')
+
 @stop
 
 @section('css')
